@@ -1,0 +1,7 @@
+/static/
+/media/
+*.pyc
+properties.py*
+.project
+.pydevproject
+/.settings/

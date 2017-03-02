@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>
+		{% block title %}个人博客{% endblock %}
+	</title>
+    {% block keywords %}		
+	<meta name="keywords" content="个人博客" />
+	{% endblock %}
+	{% block description %}		
+	<meta name="description" content="" />
+	{% endblock %}
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+	{% block style %}
+		<!-- stylesheet -->   
+    {% endblock %}
+    <!--[if lt IE 9]>
+    <script src="js/modernizr.js"></script>
+    <![endif]-->
+</head>
+<body>
+	{% block body %}
+		<!-- body -->
+	{% endblock %}
+</body>
+{% block script %}
+	<!-- script -->   
+{% endblock %}
+{% block extendscript %}
+    <!-- other static resources -->
+{% endblock %}
+</html>

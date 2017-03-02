@@ -1,0 +1,9 @@
+/__init__.pyc
+/admin.pyc
+/apps.pyc
+/forms.pyc
+/models.pyc
+/service.pyc
+/urls.pyc
+/utils.pyc
+/views.pyc

@@ -1,0 +1,40 @@
+{% extends "skin25/base.html" %}
+{% load staticfiles %}
+{% block style %}
+	<link href="{% static 'skin25/css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'skin25/css/index.css' %}" rel="stylesheet">
+    <link href="{% static 'skin25/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'skin25/css/media.css' %}" rel="stylesheet">  
+{% endblock %}
+{% block left %}
+	<article>
+        <h2 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="1/">模板分享</a>><a href="1/">个人博客模板</a></h2>
+        <div class="template">
+            <h3>
+                <p><span>收藏图片</span></p>
+                <a href="#" class="more">更多>></a></h3>
+            <ul>
+                <li><a href="#" target="_blank"><img src="{% static 'web/images/photo/1.jpg' %}"></a><span>仿新浪博客风格・梅――古典个人博客模板</span></li>
+                <li><a href="#" target="_blank"><img src="{% static 'web/images/photo/2.jpg' %}"></a><span>仿新浪博客风格・梅――古典个人博客模板</span></li>
+                <li><a href="#" target="_blank"><img src="{% static 'web/images/photo/3.jpg' %}"></a><span>仿新浪博客风格・梅――古典个人博客模板</span></li>
+                <li><a href="#" target="_blank"><img src="{% static 'web/images/photo/4.jpg' %}"></a><span>仿新浪博客风格・梅――古典个人博客模板</span></li>
+                <li><a href="#" target="_blank"><img src="{% static 'web/images/photo/5.jpg' %}"></a><span>仿新浪博客风格・梅――古典个人博客模板</span></li>
+                <li><a href="#" target="_blank"><img src="{% static 'web/images/photo/6.jpg' %}"></a><span>仿新浪博客风格・梅――古典个人博客模板</span></li>
+                <li><a href="#" target="_blank"><img src="{% static 'web/images/photo/7.jpg' %}"></a><span>仿新浪博客风格・梅――古典个人博客模板</span></li>
+                <li><a href="#" target="_blank"><img src="{% static 'web/images/photo/8.jpg' %}"></a><span>仿新浪博客风格・梅――古典个人博客模板</span></li>
+                <li><a href="#" target="_blank"><img src="{% static 'web/images/photo/9.jpg' %}"></a><span>仿新浪博客风格・梅――古典个人博客模板</span></li>
+                <li><a href="#" target="_blank"><img src="{% static 'web/images/photo/10.jpg' %}"></a><span>仿新浪博客风格・梅――古典个人博客模板</span></li>
+            </ul>
+        </div>
+        <div class="page">
+        	<a title="Total record"><b>113</b></a>
+        	<b>1</b>
+        	<a href="#">2</a>
+        	<a href="#">3</a>
+        	<a href="#">4</a>
+        	<a href="#">5</a>
+        	<a href="#">&gt;</a>
+        	<a href="#">&gt;&gt;</a>
+        </div>
+    </article>
+{% endblock %}

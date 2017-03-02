@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+{% block head %}
+<head>
+	<meta charset="UTF-8">
+	<title>
+		{% block title %}个人博客{% endblock %}
+	</title>
+	{% block keywords %}		
+	<meta name="keywords" content="个人博客" />
+	{% endblock %}
+	{% block description %}		
+	<meta name="description" content="" />
+	{% endblock %}
+	{% load staticfiles %}
+	{% block style %}
+	<link rel="stylesheet" href="{% static 'web/css/index.css' %}"/>
+	<link rel="stylesheet" href="{% static 'web/css/style.css' %}"/>
+	{% endblock %}
+	{% block jquery %}
+	<script type="text/javascript" src="{% static 'web/js/jquery1.42.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'web/js/jquery.SuperSlide.2.1.1.js' %}"></script>
+	{% endblock %}
+	<!--[if lt IE 9]>
+	<script src="js/html5.js"></script>
+	<![endif]-->
+</head>
+{% endblock %}
+{% block body %}
+<body>
+    <!--header start-->
+    {% block header %}
+	    <!--  -->
+    {% endblock %}
+     <!--header end-->
+    <!--nav-->
+    {% block nav %}
+    	<!--  -->
+    {% endblock %}  
+    <!--nav end-->
+    <!--content start-->
+    {% block content %}
+    	<!--  -->
+    {% endblock %}
+    <!--content end-->
+    <!--footer start-->
+    {% block footer %}
+   		<!--  -->
+    {% endblock %}
+    <!--footer end-->
+    {% block extendscript %}
+    	<!--  -->
+    {% endblock %}
+</body>
+{% endblock %}
+</html>
