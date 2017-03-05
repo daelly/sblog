@@ -16,6 +16,8 @@ import properties
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
+#CKEditor config
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
@@ -64,6 +66,13 @@ CKEDITOR_BROWSE_SHOW_DIRS = True
 
 CKEDITOR_RESTRICT_BY_USER = True
 
+#Duoshuo config
+DUOSHUO_SECRET = properties.duoshuo_secret
+
+DUOSHUO_SHORT_NAME = properties.duoshuo_short_name
+
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -87,7 +96,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sblog.apps.SblogConfig',
     'django.contrib.sites',
-    'django_comments',
     'ckeditor',
     'ckeditor_uploader',
 ]
@@ -137,6 +145,17 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': properties.redis_url,
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'PASSWORD': properties.redis_password
+        }
+    }
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -178,4 +197,6 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 STATIC_URL = '/static/'
 
-SITE_ID=1
+SYSTEM_SKIN_NAME = 'skin25'
+
+SITE_ID = 1

@@ -39,6 +39,8 @@ a.readmore { color: #f55f77; margin-left: 10px; font-weight: bold }
 .ph_news h2 p { height: 40px; line-height: 40px; width: 100px; padding: 0 0 0 30px; border-radius: 0 20px 20px 0; text-shadow: rgba(0,0,0,.65) 1px 1px; background: #0f9c7c }
 .ph_news ul { margin: 10px }
 .ph_news li { white-space: nowrap; text-overflow: ellipsis; overflow: hidden; width: 100%; color: #cdcbcb; line-height: 24px; height: 24px; }
+.ph_news .ds-recent-comments li {height: auto!important;}
+.box_c .ds-thread-count, .autor .ds-thread-count {margin: 0 0;}
 .ph_news li a { color: #cdcbcb; }
 .ph_news li a:hover, .pl_n dd a:hover { text-decoration: underline }
 .ph_n li span { margin-right: 10px; font-family: "Î¢ÈíÑÅºÚ"; color: #FFF; background: #404040; padding: 0 5px }

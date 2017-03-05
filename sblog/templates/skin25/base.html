@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load cache %}
 {% block style %}
 	<link href="{% static 'skin25/css/base.css' %}" rel="stylesheet">
     <link href="{% static 'skin25/css/index.css' %}" rel="stylesheet">
@@ -28,8 +29,9 @@
 		    {% endblock %}
 		    <!-- sperator -->
 		    {% block right %}
+		    {% cache 86400 right %}
 		    	<aside>
-			        <div class="avatar"><a href="about.html"><span>关于李清洋</span></a></div>
+			        <div class="avatar"><a href="{%url 'sblog:about' %}"><span>关于李清洋</span></a></div>
 			        <div class="topspaceinfo">
 			            <h1>执子之手，与子偕老</h1>
 			            <p>于千万人之中，我遇见了我所遇见的人....</p>
@@ -40,14 +42,6 @@
 			            <p>籍贯：广西-浦北</p>
 			            <p>电话：15902096411</p>
 			            <p>邮箱：daelly@live.com</p>
-			        </div>
-			        <div class="bdsharebuttonbox">
-				        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-				        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-				        <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
-				        <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-				        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-				        <a href="#" class="bds_more" data-cmd="more"></a>
 			        </div>
 			        <div class="tj_news">
 			            <h2>
@@ -84,6 +78,7 @@
 			            </ul>
 			        </div>
 			    </aside>
+		    {% endcache %}
 		    {% endblock %}
 	    {% endblock %}
 	    <div class="clear"></div>

@@ -14,7 +14,7 @@
             	<span class="d_time">发布时间：{{article.update_time|date:'Y-m-d'}}</span>
             	<span>编辑：{{article.author.pen_name}}</span>
             	<span>浏览（{{article.visits}}）</span>
-            	<span>评论（14）</span>
+            	<span>评论（<span class="ds-thread-count" data-thread-key="{{article.id}}" data-count-type="comments">0</span>）</span>
             </p>
             <ul class="infos">
                 {% autoescape off %}
@@ -39,6 +39,18 @@
                     <li><a href="/news/s/2013-06-06/24.html" title="爱情的背叛者">爱情的背叛者</a></li>
                 </ul>
             </div>
+            <div class="ds-thread" data-thread-key="{{article.id}}" data-title="{{article.caption}}"></div>
+			<script type="text/javascript">
+		        var duoshuoQuery = {short_name:"daelly"};
+		        (function() {
+		            var ds = document.createElement('script');
+		            ds.type = 'text/javascript';ds.async = true;
+		            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		            ds.charset = 'UTF-8';
+		            (document.getElementsByTagName('head')[0] 
+		             || document.getElementsByTagName('body')[0]).appendChild(ds);
+		        })();
+	        </script>            
         </div>
     </article>
 {% endblock %}
@@ -70,52 +82,11 @@
             <h2>
                 <p>最新评论</p>
             </h2>
-            <ul class="pl_n">
-                <dl>
-                    <dt><img src="/static/skin25/images/s8.jpg"></dt>
-                    <dt></dt>
-                    <dd>DanceSmile
-                        <time>49分钟前</time>
-                    </dd>
-                    <dd><a href="/">文章非常详细，我很喜欢.前端的工程师很少，我记得几年前yahoo花高薪招聘前端也招不到</a></dd>
-                </dl>
-                <dl>
-                    <dt><img src="/static/skin25/images/s7.jpg"></dt>
-                    <dt></dt>
-                    <dd>yisa
-                        <time>2小时前</time>
-                    </dd>
-                    <dd><a href="/">我手机里面也有这样一个号码存在</a></dd>
-                </dl>
-                <dl>
-                    <dt><img src="/static/skin25/images/s6.jpg"></dt>
-                    <dt></dt>
-                    <dd>小林博客
-                        <time>8月7日</time>
-                    </dd>
-                    <dd><a href="/">博客色彩丰富，很是好看</a></dd>
-                </dl>
-                <dl>
-                    <dt><img src="/static/skin25/images/003.jpg"></dt>
-                    <dt></dt>
-                    <dd>DanceSmile
-                        <time>49分钟前</time>
-                    </dd>
-                    <dd><a href="/">文章非常详细，我很喜欢.前端的工程师很少，我记得几年前yahoo花高薪招聘前端也招不到</a></dd>
-                </dl>
-                <dl>
-                    <dt><img src="/static/skin25/images/002.jpg"></dt>
-                    <dt></dt>
-                    <dd>yisa
-                        <time>2小时前</time>
-                    </dd>
-                    <dd><a href="/">我手机里面也有这样一个号码存在</a></dd>
-                </dl>
-            </ul>
+            <ul class="ds-recent-comments pl_n" data-num-items="5" data-thread-key="{{article.id}}"></ul>
             <h2>
                 <p>最近访客</p>
-                <ul>
-                    <img src="/static/skin25/images/vis.jpg"><!-- 直接使用“多说”插件的调用代码 -->
+                <ul class="ds-recent-visitors" data-num-items="24" data-thread-key="{{article.id}}">
+                    
                 </ul>
             </h2>
         </div>

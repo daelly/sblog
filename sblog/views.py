@@ -9,9 +9,11 @@ from django.template.defaultfilters import register
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import re
 from sblog.models import Category
+from Blog.settings import SYSTEM_SKIN_NAME
+from django.views.decorators.cache import cache_page
+from django.views.generic.base import TemplateView
 
-_SKIN_KEY_ = '_SYSTEM_SKIN_NAME_'
-skin = service.get_const(_SKIN_KEY_);
+skin = SYSTEM_SKIN_NAME
 page_size = 9;
 
 @register.filter(name='cstrip')
@@ -34,15 +36,9 @@ def blog_home(request):
     suggestion = service.visit_blogs(8);
     return render(request, skin+'/home.html', {'blogs': blogs, 'lastest': lastest, 'suggestion': suggestion});
 
-#自我介绍
-def blog_about(request):
-    return render(request, skin+'/about.html', {});
+class AboutView(TemplateView):
+    template_name = skin+'/about.html';
 
-def blog_learn(request):
-    return render(request, 'learn.html', {});
-
-def blog_diary(request):
-    return render(request, 'diary.html', {'rg': range(6)});
 
 def blog_shuo(request):
     return render(request, 'shuo.html', {});
@@ -55,6 +51,7 @@ def blog_album(request):
 def blog_board(request):
     return render(request, 'board.html', {});
 
+# @cache_page(30*60)
 def blog_category(request, category_slug):
     category = Category.objects.get(category_slug=category_slug);
     blog_list = Blog.objects.filter(category__category_slug=category_slug);
@@ -70,6 +67,7 @@ def blog_category(request, category_slug):
         blogs = paginator.page(paginator.num_pages)
     return render(request, skin+'/list.html', {'page': page, 'blogs': blogs, 'category': category, 'lastest': lastest, 'suggestion': suggestion});
 
+# @cache_page(60*60*24, key_prefix=skin)
 def blog_detail(request, blog_id):
     article = get_object_or_404(Blog, pk=blog_id);
     article.visits = article.visits + 1;

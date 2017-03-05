@@ -15,10 +15,21 @@
                 <ul>
                     <h3><a href="{%url 'sblog:detail' blog.id%}">{{blog.caption}}</a></h3>
                     <div class="autor">
-                    	<span>作者：杨青</span>
-                    	<span>分类：[<a href="/">{{blog.category.category_name}}</a>]</span>
-                    	<span>浏览（<a href="/">{{blog.visits}}</a>）</span>
-                    	<span>评论（<a href="/">30</a>）</span>
+                    	<span>作者：{{blog.author.pen_name}}</span>
+                    	<span>分类：[<a href="{% url 'sblog:category' blog.category.category_slug%}">{{blog.category.category_name}}</a>]</span>
+                    	<span>浏览（<a href="#">{{blog.visits}}</a>）</span>
+                    	<span>评论（<a href="/"><span class="ds-thread-count" data-thread-key="{{blog.id}}" data-count-type="comments">0</span></a>）</span>
+                    	<script type="text/javascript">
+					        var duoshuoQuery = {short_name:"daelly"};
+					        (function() {
+					            var ds = document.createElement('script');
+					            ds.type = 'text/javascript';ds.async = true;
+					            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+					            ds.charset = 'UTF-8';
+					            (document.getElementsByTagName('head')[0] 
+					             || document.getElementsByTagName('body')[0]).appendChild(ds);
+					        })();
+				        </script>  
                     </div>
                     <p>
                     	{{blog.abstract|cstrip:200}}
