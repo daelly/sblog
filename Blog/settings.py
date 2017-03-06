@@ -66,12 +66,6 @@ CKEDITOR_BROWSE_SHOW_DIRS = True
 
 CKEDITOR_RESTRICT_BY_USER = True
 
-#Duoshuo config
-DUOSHUO_SECRET = properties.duoshuo_secret
-
-DUOSHUO_SHORT_NAME = properties.duoshuo_short_name
-
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/

@@ -1,7 +1,6 @@
 #coding:utf8
 
 from django.shortcuts import render
-from django.shortcuts import get_object_or_404
 
 from models import Blog
 import service
@@ -51,7 +50,7 @@ def blog_album(request):
 def blog_board(request):
     return render(request, 'board.html', {});
 
-# @cache_page(30*60)
+@cache_page(30*60, key_prefix=skin)
 def blog_category(request, category_slug):
     category = Category.objects.get(category_slug=category_slug);
     blog_list = Blog.objects.filter(category__category_slug=category_slug);
@@ -67,11 +66,9 @@ def blog_category(request, category_slug):
         blogs = paginator.page(paginator.num_pages)
     return render(request, skin+'/list.html', {'page': page, 'blogs': blogs, 'category': category, 'lastest': lastest, 'suggestion': suggestion});
 
-# @cache_page(60*60*24, key_prefix=skin)
+@cache_page(60*60*24, key_prefix=skin)
 def blog_detail(request, blog_id):
-    article = get_object_or_404(Blog, pk=blog_id);
-    article.visits = article.visits + 1;
-    article.save();
+    article = service.get_blog_and_add_visits(blog_id);
     visits = service.visit_blogs(8);
     suggestion = service.hot_blogs(8);
     return render(request, skin+'/blog.html', {'article': article, 'visits': visits, 'suggestion': suggestion});

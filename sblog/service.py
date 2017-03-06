@@ -6,6 +6,7 @@ Created on 2017年2月18日
 '''
 from sblog.models import Blog, Constanter
 from django.core.cache import cache
+from django.shortcuts import get_object_or_404
 
 _constant_key_ = '_constant_key_';
 
@@ -59,3 +60,18 @@ def reset_cache():
         v = item.the_value;
         dicct[k] = v;
     cache.set(_constant_key_, dicct);
+    
+def add_visit_count(blog_id, ip=None):
+    key = 'blog_visits_of_' + blog_id;
+    cache.set(key, 0, nx=True);
+    visits = cache.incr(key);
+    return visits;
+
+def get_blog_and_add_visits(blog_id):
+    key = 'specified_blog_of_' + blog_id;
+    blog = cache.get(key);
+    if not blog:
+        blog = get_object_or_404(Blog, pk=blog_id);
+        cache.set(key, blog, nx=True);
+    blog.visits = add_visit_count(blog_id);
+    return blog;
