@@ -5,3 +5,4 @@ properties.py*
 .project
 .pydevproject
 /.settings/
+migrations/
